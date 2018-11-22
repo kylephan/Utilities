@@ -1,6 +1,13 @@
+'''
+Author - Kyle Phan
+Version - 0.1
+Date - 08/11/2018
+Description - UI written for the animation booth where audience freely animate the characters.
+'''
+
 import maya.cmds as mc
 import maya.mel as mel
-
+## Functions
 def HammerVisOn(*args):
     hammer = mc.select("hammer_geo")
     hams = mc.ls( sl=True )
