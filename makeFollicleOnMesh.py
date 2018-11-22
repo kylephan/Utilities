@@ -1,3 +1,12 @@
+'''
+Author - Kyle Phan
+Version - 0.1
+Date - 08/11/2018
+Description - Make follicles follow mesh
+### NOTE ###
+This script is written by me based on Andy Van Straten's MakeFollicleOnSurface script. I rewrote it to suit my purpose.
+'''
+
 import maya.cmds as mc
 
 meshShp = 'body_geoShape' # change the name to your surface shape
