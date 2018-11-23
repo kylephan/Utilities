@@ -1,14 +1,21 @@
+'''
+Author - Kyle Phan
+Version - 0.1
+Date - 08/11/2018
+Description - Distribute joints evenly along a curve
+'''
+
 import maya.cmds as mc
 
-crvShape = 'l_upperEyelid_crvShape'
+crvShape = 'l_upperEyelid_crvShape' ## pass curveShape name in here
 
 groups = mc.ls( sl=True )
 
 for grp in groups:
-    u = 1 - 0.25 * groups.index(grp)
+    u = 1.0 - (1.0 / ( len(groups) - 1.0 ) ) * groups.index(grp)
     jointAlongCurve( crvShape,grp,u )
     
-
+## define function
 def jointAlongCurve( crvShape,grp,u ):
     mPath = mc.createNode('motionPath')
     
