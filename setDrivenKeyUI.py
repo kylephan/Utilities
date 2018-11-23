@@ -1,12 +1,18 @@
+'''
+Author - Kyle Phan
+Version - 0.1
+Date - 08/11/2018
+Description - Set driven key for specified attribute.
+'''
+
 import maya.cmds as mc
 
-## DRIVEN KEY FUNC
-
+## function starts here
 def setDrivenKey(*args):
     driver = mc.textField('driverTextField',query = True, text = True)
     maxZ = mc.intField('maxZIntField',query = True, value = True)
     minZ = mc.intField('minZIntField',query = True, value = True)
-    print driver,maxZ,minZ
+    ##print driver,maxZ,minZ
     
     objects = mc.ls( sl = True )
     for obj in objects:
@@ -26,7 +32,7 @@ def setDrivenKey(*args):
             mc.setAttr( obj + '.rotateZ', minZ )
             mc.setDrivenKeyframe( at = 'rotateZ', cd = driver + '.toeCurl' )
 
-## WINDOWN UI
+## UI starts here
 windowID = 'setDrivenKeyUI'
 
 if mc.window( windowID, exists = True ):
