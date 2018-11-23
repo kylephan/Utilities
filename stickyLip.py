@@ -1,8 +1,15 @@
-  import maya.cmds as mc
+'''
+Author - Kyle Phan
+Version - 0.1
+Date - 08/11/2018
+Description - set driven key on sticky lip setup. This script is really personal. I used it just to speed up my process
+'''
 
-locator = mc.ls(sl=True)
-lower = mc.ls(sl=True)
-upper = mc.ls(sl=True)
+import maya.cmds as mc
+
+locator = mc.ls(sl=True)  ## select each object
+lower = mc.ls(sl=True)    ## accordingly to each line
+upper = mc.ls(sl=True)    ## then run single line 
 length = [0,1,2,3,4,5,6,7,8]
 driver = 'jaw_ctrl'
 
