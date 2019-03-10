@@ -1,2 +1,2 @@
 # Utilities
-A compilation of scripts i has written so far to support my Maya workflow
+A compilation of scripts i has written so far to speed up my Maya workflow.
