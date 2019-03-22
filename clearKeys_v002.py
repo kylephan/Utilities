@@ -56,38 +56,39 @@ def changeAttr(item):
 def clearUserDefinedAttr(o):
     
     attrList = mc.listAttr(o, userDefined = True, keyable=True, visible = True)
-    attrCount = len(attrList)
-    aC = 0
-    while aC < attrCount:
-        
-        type = str(attrList[aC])
-        
-        aC = aC + 1
-        
-        count = mc.keyframe(o, query=True,attribute=type, keyframeCount = True)
-        
-        if count > 2:        
-            c = 0    
-            emptyList = []    
-            while c < count:
-                test = 0
-                up = c + 1
-                down = c - 1
-                
-                value = mc.keyframe(o, query=True,attribute = type, valueChange=True)                     
-                if c == 0 or c == (len(value)-1):
-                    test = test + 1
-                else:
-                    if value[c] == value[up] and value[c] == value[down]: 
-                    
-                        emptyList.append(c)
-                    
-                c = c + 1 
-                print value  
-            if len(emptyList) != 0:
-                emptyList.reverse()
-                indexRange=[(index,) for index in emptyList]   
-                mc.cutKey(o, option = 'keys', attribute = type, index = indexRange)
+    if attrList is not None:
+        attrCount = len(attrList)
+        aC = 0
+        while aC < attrCount:
+
+            type = str(attrList[aC])
+
+            aC = aC + 1
+
+            count = mc.keyframe(o, query=True,attribute=type, keyframeCount = True)
+
+            if count > 2:        
+                c = 0    
+                emptyList = []    
+                while c < count:
+                    test = 0
+                    up = c + 1
+                    down = c - 1
+
+                    value = mc.keyframe(o, query=True,attribute = type, valueChange=True)                     
+                    if c == 0 or c == (len(value)-1):
+                        test = test + 1
+                    else:
+                        if value[c] == value[up] and value[c] == value[down]: 
+
+                            emptyList.append(c)
+
+                    c = c + 1 
+                    print value  
+                if len(emptyList) != 0:
+                    emptyList.reverse()
+                    indexRange=[(index,) for index in emptyList]   
+                    mc.cutKey(o, option = 'keys', attribute = type, index = indexRange)
           
 def clear(o, type):
     if (type == 'error'):
@@ -121,38 +122,39 @@ def clear(o, type):
 def clearTransRot(o):
     
     attrList = mc.listAttr(o, keyable = True, visible = True, st = ['translate*', 'rotate*'])
-    attrCount = len(attrList)
-    aC = 0
-    while aC < attrCount:
-        
-        type = str(attrList[aC])
-        
-        aC = aC + 1
-        
-        count = mc.keyframe(o, query=True,attribute=type, keyframeCount = True)
-        
-        if count > 2:        
-            c = 0    
-            emptyList = []    
-            while c < count:
-                test = 0
-                up = c + 1
-                down = c - 1
-                
-                value = mc.keyframe(o, query=True,attribute = type, valueChange=True)                     
-                if c == 0 or c == (len(value)-1):
-                    test = test + 1
-                else:
-                    if value[c] == value[up] and value[c] == value[down]: 
-                    
-                        emptyList.append(c)
-                    
-                c = c + 1 
-                print value  
-            if len(emptyList) != 0:
-                emptyList.reverse()
-                indexRange=[(index,) for index in emptyList]   
-                mc.cutKey(o, option = 'keys', attribute = type, index = indexRange)
+    if attrList is not None:
+        attrCount = len(attrList)
+        aC = 0
+        while aC < attrCount:
+
+            type = str(attrList[aC])
+
+            aC = aC + 1
+
+            count = mc.keyframe(o, query=True,attribute=type, keyframeCount = True)
+
+            if count > 2:        
+                c = 0    
+                emptyList = []    
+                while c < count:
+                    test = 0
+                    up = c + 1
+                    down = c - 1
+
+                    value = mc.keyframe(o, query=True,attribute = type, valueChange=True)                     
+                    if c == 0 or c == (len(value)-1):
+                        test = test + 1
+                    else:
+                        if value[c] == value[up] and value[c] == value[down]: 
+
+                            emptyList.append(c)
+
+                    c = c + 1 
+                    print value  
+                if len(emptyList) != 0:
+                    emptyList.reverse()
+                    indexRange=[(index,) for index in emptyList]   
+                    mc.cutKey(o, option = 'keys', attribute = type, index = indexRange)
                 
                 
 windowID = 'deleteKeys'              
